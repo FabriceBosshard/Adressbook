@@ -18,12 +18,12 @@ public class TestLoad {
 
             for (Adress a : Adressbook.adressbook) {
                 System.out.println("->Address");
-                System.out.println("-->Name: "+a.name);
-                System.out.println("-->Surname: "+a.surname);
-                System.out.println("-->Birthdate: "+a.birthdate);
-                System.out.println("-->Address: "+a.address);
-                System.out.println("-->Email: "+a.email);
-                System.out.println("-->Telephone: "+a.telephone);
+                System.out.println("-->Name: "+a.getName());
+                System.out.println("-->Surname: "+a.getSurname());
+                System.out.println("-->Birthdate: "+a.getBirthdate());
+                System.out.println("-->Address: "+a.getAddress());
+                System.out.println("-->Email: "+a.getEmail());
+                System.out.println("-->Telephone: "+a.getTelephone());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
