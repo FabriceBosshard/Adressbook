@@ -39,16 +39,16 @@ public class Controller implements Initializable{
         });
 
         newEmployee.setOnAction((event)->{
-            Pane root;
+            Stage employeeStage = new Stage();
             try {
-                root = (Pane) FXMLLoader.load(Controller.class.getResource("View/employeePage.fxml"));
-                Stage stage = new Stage();
-                stage.setTitle("Neuer Mitarbeiter");
-                stage.setScene(new Scene(root));
-                stage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
+                Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/employeePage.fxml"));
+                Scene scene = new Scene(page);
+                employeeStage.setScene(scene);
+                employeeStage.setTitle("Neuer Mitarbeiter");
+                employeeStage.show();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         delete.setOnAction((event)->{

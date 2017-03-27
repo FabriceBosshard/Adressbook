@@ -48,9 +48,4 @@ public class Adress {
         return telephone;
     }
 
-    public Adress CreateAdress(String name, String forname, String birthdate, String adress, String email, String telephone){
-        Adress member = new Adress(name,forname,birthdate,adress,email,telephone);
-
-        return member;
-    }
 }

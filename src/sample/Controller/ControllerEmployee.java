@@ -1,15 +1,9 @@
 package sample.Controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
-import sample.Model.Adressbook;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -30,9 +24,20 @@ public class ControllerEmployee implements Initializable {
     public TextField email;
     @FXML
     public TextField telephone;
+    @FXML
+    public Button abbort;
+    @FXML
+    public Button newEmployee;
 
 
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         assert name != null : "fx:id=\"myButton\" was not injected: check your FXML file 'simple.fxml'.";
+
+        abbort.setOnAction((event)->{
+            
+        });
+        newEmployee.setOnAction((event)->{
+
+        });
     }
 }

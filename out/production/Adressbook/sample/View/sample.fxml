@@ -69,11 +69,11 @@
                      <HBox.margin>
                         <Insets left="17.0" top="12.0" />
                      </HBox.margin></Button>
-                  <Button mnemonicParsing="false" text="Neuer Mitarbeiter">
+                  <Button mnemonicParsing="false" fx:id="newEmployee" text="Neuer Mitarbeiter">
                      <HBox.margin>
                         <Insets left="10.0" top="12.0" />
                      </HBox.margin></Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" text="Löschen">
+                  <Button mnemonicParsing="false" prefHeight="30.0" fx:id="delete" text="Löschen">
                      <HBox.margin>
                         <Insets left="10.0" top="12.0" />
                      </HBox.margin>
