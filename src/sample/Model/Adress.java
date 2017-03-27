@@ -9,17 +9,25 @@ import java.util.List;
 public class Adress {
 
     String name;
-    String forname;
+    String surname;
     String birthdate;
-    String adress;
-    ArrayList<String> emails = new ArrayList<>();
-    ArrayList<String> telephonicadresses = new ArrayList<>();
+    String address;
+    String email;
+    String telephone;
 
 
-    public Adress(String name, String forname, String birthdate, String adress){
+    public Adress(String name, String forname, String birthdate, String adress, String email, String telephone){
         this.name = name;
-        this.forname = forname;
+        this.surname = forname;
         this.birthdate = birthdate;
-        this.adress = adress;
+        this.address = adress;
+        this.email = email;
+        this.telephone = telephone;
+    }
+
+    public Adress CreateAdress(String name, String forname, String birthdate,String adress, String email, String telephone){
+        Adress member = new Adress(name,forname,birthdate,adress,email,telephone);
+
+        return member;
     }
 }
