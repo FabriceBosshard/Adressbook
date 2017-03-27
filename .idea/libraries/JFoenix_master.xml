@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="JFoenix-master">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/JFoenix-master/JFoenix-master/demo" />
+      <root url="file://$USER_HOME$/Downloads/JFoenix-master/JFoenix-master/src" />
+      <root url="file://$USER_HOME$/Downloads/JFoenix-master/demo" />
+      <root url="file://$USER_HOME$/Downloads/JFoenix-master/src" />
+      <root url="file://$USER_HOME$/Downloads/JFoenix-master" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads/JFoenix-master" recursive="false" type="SOURCES" />
+  </library>
+</component>
