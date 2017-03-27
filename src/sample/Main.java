@@ -6,10 +6,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main extends Application {
+
+    ArrayList<String> ViewList = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
