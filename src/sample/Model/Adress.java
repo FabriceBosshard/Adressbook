@@ -8,12 +8,12 @@ import java.util.List;
  */
 public class Adress {
 
-    String name;
-    String surname;
-    String birthdate;
-    String address;
-    String email;
-    String telephone;
+    public String name;
+    public String surname;
+    public String birthdate;
+    public String address;
+    public String email;
+    public String telephone;
 
 
     public Adress(String name, String forname, String birthdate, String adress, String email, String telephone){
