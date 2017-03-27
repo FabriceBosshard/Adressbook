@@ -8,13 +8,12 @@ import java.util.List;
  */
 public class Adress {
 
-    public String name;
-    public String surname;
-    public String birthdate;
-    public String address;
-    public String email;
-    public String telephone;
-
+    private String name;
+    private String surname;
+    private String birthdate;
+    private String address;
+    private String email;
+    private String telephone;
 
     public Adress(String name, String forname, String birthdate, String adress, String email, String telephone){
         this.name = name;
@@ -25,7 +24,31 @@ public class Adress {
         this.telephone = telephone;
     }
 
-    public Adress CreateAdress(String name, String forname, String birthdate,String adress, String email, String telephone){
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public Adress CreateAdress(String name, String forname, String birthdate, String adress, String email, String telephone){
         Adress member = new Adress(name,forname,birthdate,adress,email,telephone);
 
         return member;
