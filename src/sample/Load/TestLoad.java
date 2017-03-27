@@ -4,6 +4,7 @@ import sample.Model.Adress;
 import sample.Load.LoadFromJson;
 import sample.Model.Adress;
 import sample.Model.Adressbook;
+import sample.Save.SaveToJson;
 
 import java.io.FileNotFoundException;
 
@@ -14,7 +15,7 @@ public class TestLoad {
     public static void main(String[] args) {
         LoadFromJson loader = new LoadFromJson();
         try {
-            loader.Load("Desktop/AddressBookSample.json");
+            loader.Load("AddressBook.json");
 
             for (Adress a : Adressbook.adressbook) {
                 System.out.println("->Address");
@@ -25,6 +26,10 @@ public class TestLoad {
                 System.out.println("-->Email: "+a.getEmail());
                 System.out.println("-->Telephone: "+a.getTelephone());
             }
+
+            SaveToJson saveToJson = new SaveToJson();
+            saveToJson.Save();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
