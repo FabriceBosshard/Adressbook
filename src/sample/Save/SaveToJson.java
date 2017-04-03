@@ -12,17 +12,14 @@ import java.io.Writer;
  */
 public class SaveToJson {
 
-    public void Save() {
+    public static void Save() {
         try (Writer writer = new FileWriter("AddressBook.json")) {
             Gson gson = new GsonBuilder().create();
             gson.toJson(Adressbook.adressbook, writer);
         }
         catch (Exception ex) {
-
+            System.out.println("Didnt write to JSON");
         }
     }
-
-
-
 
 }
