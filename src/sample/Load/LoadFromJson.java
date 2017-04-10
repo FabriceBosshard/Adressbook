@@ -1,5 +1,7 @@
 package sample.Load;
 
+import com.sun.jndi.cosnaming.IiopUrl;
+import javafx.collections.ObservableList;
 import sample.Model.Adress;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -27,7 +29,6 @@ public class LoadFromJson {
     public void Load(String path) throws FileNotFoundException {
         parser = new JsonParser();
         Object obj = parser.parse(new FileReader(path));
-
 
         JsonArray addressBook = (JsonArray) obj;
 
