@@ -1,5 +1,7 @@
 package sample.Filter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sample.Model.Adress;
 
 import java.lang.reflect.Array;
@@ -9,44 +11,35 @@ import java.util.ArrayList;
  * Created by igorcetkovic on 03.04.17.
  */
 public class Filter {
-    ArrayList<Adress> book = null;
-    ArrayList<Adress> filteredBook = new ArrayList<>();
-    public Filter(ArrayList<Adress> list) {
+    ObservableList<Adress> book = null;
+    public ObservableList<Adress> filteredBook;
+    public Filter(ObservableList<Adress> list) {
         book = list;
-
-        for (Adress a : book) {
-            filteredBook.add(a);
-        }
     }
 
-
-    public void ResetFilter() {
-        for (Adress a : book) {
-            filteredBook.add(a);
-        }
-    }
-
-    public void FilterName(String name) {
-        filteredBook = new ArrayList<>();
+    public ObservableList<Adress> FilterName(String name) {
+        filteredBook = FXCollections.observableArrayList();
 
         for (Adress a : book) {
-            if (a.getName() == name) {
+            if (a.getName().equals(name)) {
+                filteredBook.add(a);
+            }else if (a.getSurname().equals(name)){
                 filteredBook.add(a);
             }
         }
+        return filteredBook;
     }
 
-    public void FilterPhone(String phone){
-        filteredBook = new ArrayList<>();
-
+    public ObservableList<Adress> FilterPhone(String phone){
+        filteredBook = FXCollections.observableArrayList();
         for (Adress a : book) {
-            if (a.getTelephone() == phone) {
+            if (a.getTelephone().equals(phone)) {
                 filteredBook.add(a);
             }
         }
+        return filteredBook;
     }
-
-    public ArrayList<Adress> getFilteredBook() {
+    public ObservableList<Adress> getFilteredBook(){
         return filteredBook;
     }
 }

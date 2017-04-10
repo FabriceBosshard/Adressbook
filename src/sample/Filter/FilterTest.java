@@ -1,5 +1,7 @@
 package sample.Filter;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sample.Model.Adress;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
  */
 public class FilterTest {
     public static void main(String[] args) {
-        ArrayList<Adress> book = new ArrayList<>();
+        ObservableList<Adress> book = FXCollections.observableArrayList();
 
         Adress a = new Adress("Peter", "Hans", "23.23.2323", "SPrangle", "cetk", "123123");
         Adress b = new Adress("Hans", "Hans", "23.23.2323", "SPrangle", "cetk", "1234");
