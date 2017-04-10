@@ -15,10 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main extends Application {
-
-    ArrayList<String> ViewList = new ArrayList<>();
-
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         try {
