@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.Main;
 import sample.Model.Adressbook;
+import sample.Save.SaveToJson;
 
 public class Controller implements Initializable{
 
@@ -35,7 +36,7 @@ public class Controller implements Initializable{
 
 
         save.setOnAction((event)->{
-            Adressbook.saveAdressbook();
+            SaveToJson.Save();
         });
 
         newEmployee.setOnAction((event)->{

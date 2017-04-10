@@ -8,8 +8,4 @@ import java.util.ArrayList;
  public final class Adressbook {
 
     public static ArrayList<Adress> adressbook = new ArrayList<>();
-
-    public static void saveAdressbook(){
-
-    }
 }
