@@ -43,6 +43,10 @@ public class Controller implements Initializable{
     private Button apply;
     @FXML
     private Pane mainPane;
+    @FXML
+    private MenuItem info;
+    @FXML
+    private MenuItem about;
 
     private TableView table = new TableView();
     private int selectedItem;
@@ -133,6 +137,40 @@ public class Controller implements Initializable{
         });
     }
 
+        });
+
+
+        info.setOnAction((event -> {
+            Stage infoStage = new Stage();
+
+            try {
+                Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/infoStage.fxml"));
+                Scene scene = new Scene(page);
+
+                infoStage.setScene(scene);
+                infoStage.setTitle("Info");
+                infoStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
+
+        about.setOnAction((event -> {
+            Stage aboutStage = new Stage();
+
+
+            try {
+                Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/about.fxml"));
+                Scene scene = new Scene(page);
+
+                aboutStage.setScene(scene);
+                aboutStage.setTitle("About");
+                aboutStage.show();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        }));
     private void initializePane() {
         fillTableView();
         selectedItem=0;
