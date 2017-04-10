@@ -37,6 +37,7 @@ public class Main extends Application {
         }catch(FileNotFoundException e){
             System.out.println("File not found");
         }
+
         launch(args);
 
 
