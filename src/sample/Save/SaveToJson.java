@@ -1,7 +1,6 @@
 package sample.Save;
 
 import com.google.gson.*;
-import sample.Model.Adress;
 import sample.Model.Adressbook;
 
 import java.io.FileWriter;

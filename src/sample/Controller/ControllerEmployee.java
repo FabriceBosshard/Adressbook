@@ -70,14 +70,6 @@ public class ControllerEmployee implements Initializable {
     }
     public void createNew(String adress,String birthdate,String email,String surname, String telephone,String name){
         Adressbook.adressbook.add(new Adress(name,surname,birthdate,adress,email,telephone));
-        System.out.println(adress+birthdate+email+surname+telephone+name);
-        for (Adress a: Adressbook.adressbook){
-            System.out.println(a.getBirthdate());
-            System.out.println(a.getAddress());
-            System.out.println(a.getEmail());
-            System.out.println(a.getSurname());
-            System.out.println(a.getTelephone());
-        }
         SaveToJson.Save();
     }
     public Boolean checkValidation(){
@@ -93,33 +85,33 @@ public class ControllerEmployee implements Initializable {
                 || email.getText().isEmpty() || name.getText().isEmpty()
                 ||surname.getText().isEmpty()|| telephone.getText().isEmpty()){
             if (adress.getText().isEmpty()){
-                adress.setStyle("-fx-background-color: #FF69B4;");
+                adress.setStyle("-fx-background-color: #FF0000;");
             }
             if (telephone.getText().isEmpty()){
-                telephone.setStyle("-fx-background-color: #FF69B4;");
+                telephone.setStyle("-fx-background-color: #FF0000;");
             }
             if (surname.getText().isEmpty()){
-                surname.setStyle("-fx-background-color: #FF69B4;");
+                surname.setStyle("-fx-background-color: #FF0000;");
             }
             if (email.getText().isEmpty()){
-                email.setStyle("-fx-background-color: #FF69B4;");
+                email.setStyle("-fx-background-color: #FF0000;");
             }
             if (name.getText().isEmpty()){
-                name.setStyle("-fx-background-color: #FF69B4;");
+                name.setStyle("-fx-background-color: #FF0000;");
             }
             if (birthdate.getText().isEmpty()){
-                birthdate.setStyle("-fx-background-color: #FF69B4;");
+                birthdate.setStyle("-fx-background-color: #FF0000;");
             }
             flag=true;
         }
         if (!isValidEmailAddress(email.getText())){
-            email.setStyle("-fx-background-color: #FF69B4;");
+            email.setStyle("-fx-background-color: #FF0000;");
             flag=true;
         }if (!isValidTelephone(telephone.getText())){
-            telephone.setStyle("-fx-background-color: #FF69B4;");
+            telephone.setStyle("-fx-background-color: #FF0000;");
             flag=true;
         }if (!isValidDate(birthdate.getText())){
-            birthdate.setStyle("-fx-background-color: #FF69B4;");
+            birthdate.setStyle("-fx-background-color: #FF0000;");
             flag=true;
         }
         if (flag){

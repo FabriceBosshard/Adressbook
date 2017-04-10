@@ -5,7 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import sample.Load.LoadFromJson;
+import sample.Model.Adress;
+import sample.Model.Adressbook;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,6 +17,7 @@ import java.util.logging.Logger;
 public class Main extends Application {
 
     ArrayList<String> ViewList = new ArrayList<>();
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -30,6 +35,20 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        LoadFromJson LFJ = new LoadFromJson();
+        try{
+            LFJ.Load("AddressBook.json");
+        }catch(FileNotFoundException e){
+            System.out.println("File not found");
+        }
+
+        for (Adress a: Adressbook.adressbook
+                ) {
+            System.out.println(a.getBirthdate());
+            System.out.println("df");
+        }
         launch(args);
+
+
     }
 }
