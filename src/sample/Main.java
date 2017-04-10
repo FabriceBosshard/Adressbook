@@ -37,12 +37,6 @@ public class Main extends Application {
         }catch(FileNotFoundException e){
             System.out.println("File not found");
         }
-
-        for (Adress a: Adressbook.adressbook
-                ) {
-            System.out.println(a.getBirthdate());
-            System.out.println("df");
-        }
         launch(args);
 
 
