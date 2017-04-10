@@ -86,20 +86,20 @@ public class Controller implements Initializable{
         assert save != null : "fx:id=\"myButton\" was not injected: check your FXML file 'simple.fxml'.";
         initializePane();
 
-        apply.setOnAction((event)->{
+        apply.setOnAction((event) -> {
             delete.setVisible(false);
             ObservableList<Adress> tempBook = table.getItems();
             sample.Filter.Filter filt = new sample.Filter.Filter(tempBook);
 
-            if (!searchTel.getText().isEmpty()){
+            if (!searchTel.getText().isEmpty()) {
                 String temp = searchTel.getText();
                 table.setItems(filt.FilterPhone(temp));
             }
-            if(!searchName.getText().isEmpty()){
+            if (!searchName.getText().isEmpty()) {
                 String temp = searchName.getText();
                 table.setItems(filt.FilterName(temp));
             }
-            if(searchName.getText().isEmpty() && searchTel.getText().isEmpty()){
+            if (searchName.getText().isEmpty() && searchTel.getText().isEmpty()) {
                 table.setItems(Adressbook.adressbook);
                 delete.setVisible(true);
             }
@@ -108,21 +108,21 @@ public class Controller implements Initializable{
 
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                selectedItem= table.getSelectionModel().selectedIndexProperty().get();
+                selectedItem = table.getSelectionModel().selectedIndexProperty().get();
 
                 showDetailView();
             }
         });
-        delete.setOnAction((event)->{
+        delete.setOnAction((event) -> {
             deleteDataRow();
             table.getSelectionModel().clearSelection();
         });
 
-        save.setOnAction((event)->{
+        save.setOnAction((event) -> {
             SaveToJson.Save();
         });
 
-        newEmployee.setOnAction((event)->{
+        newEmployee.setOnAction((event) -> {
             Stage employeeStage = new Stage();
             try {
                 Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/employeePage.fxml"));
@@ -130,17 +130,12 @@ public class Controller implements Initializable{
                 employeeStage.setScene(scene);
                 employeeStage.setTitle("Neuer Mitarbeiter");
                 employeeStage.show();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-    }
 
-        });
-
-
-        info.setOnAction((event -> {
+        info.setOnAction((event) -> {
             Stage infoStage = new Stage();
 
             try {
@@ -153,9 +148,9 @@ public class Controller implements Initializable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }));
+        });
 
-        about.setOnAction((event -> {
+        about.setOnAction((event) -> {
             Stage aboutStage = new Stage();
 
 
@@ -170,7 +165,9 @@ public class Controller implements Initializable{
                 ex.printStackTrace();
             }
 
-        }));
+        });
+    }
+
     private void initializePane() {
         fillTableView();
         selectedItem=0;

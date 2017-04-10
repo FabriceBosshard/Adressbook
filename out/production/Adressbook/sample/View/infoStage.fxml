@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" text="Hilfe">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <VBox prefHeight="300.0" prefWidth="613.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Hier finden Sie die Hilfe zum Programm.">
+               <VBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="87.0" prefWidth="450.0" text="Falls Sie eine neue Addresse erfassen möchten, müssen sie auf den &#10;Knopf &quot;Erstelle Addresse&quot; drücken. Danach werden Sie aufgefordert &#10;Angaben zur Addresse anzugeben. Diese müssen Sie nach den &#10;Richtlinien ausfüllen, falls nicht, können sie den Datensatz nicht &#10;speichern." VBox.vgrow="SOMETIMES">
+               <VBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Einen Datensatz Löschen-&gt; Datensautz auswählen Löschen drücken.&#10;">
+               <VBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Falls sie den Filter nutzen möchten, geben sie bitte etwas&#10;in die Filter Felder ein un drücken sie anwenden.">
+               <VBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label>
+               <VBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
