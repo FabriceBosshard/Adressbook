@@ -6,6 +6,7 @@ import sample.Model.Adress;
 import sample.Model.Adressbook;
 import sample.Save.SaveToJson;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
@@ -31,7 +32,13 @@ public class TestLoad {
             saveToJson.Save();
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            File f = new File("AddressBook.json");
+            try {
+                f.createNewFile();
+            } catch (Exception ex){
+
+            }
+                        e.printStackTrace();
         }
     }
 }
