@@ -41,7 +41,6 @@ public class Main extends Application {
         for (Adress a: Adressbook.adressbook
                 ) {
             System.out.println(a.getBirthdate());
-            System.out.println("df");
         }
         launch(args);
 

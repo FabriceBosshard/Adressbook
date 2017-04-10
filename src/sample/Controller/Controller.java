@@ -30,9 +30,14 @@ public class Controller implements Initializable{
     private Button newEmployee;
     @FXML
     private Button delete;
+    @FXML
+    private MenuItem info;
+    @FXML
+    private MenuItem about;
 
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         assert save != null : "fx:id=\"myButton\" was not injected: check your FXML file 'simple.fxml'.";
+
 
 
         save.setOnAction((event)->{
@@ -55,5 +60,38 @@ public class Controller implements Initializable{
         delete.setOnAction((event)->{
 
         });
+
+
+        info.setOnAction((event -> {
+            Stage infoStage = new Stage();
+
+            try {
+                Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/infoStage.fxml"));
+                Scene scene = new Scene(page);
+
+                infoStage.setScene(scene);
+                infoStage.setTitle("Info");
+                infoStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
+
+        about.setOnAction((event -> {
+            Stage aboutStage = new Stage();
+
+
+            try {
+                Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/about.fxml"));
+                Scene scene = new Scene(page);
+
+                aboutStage.setScene(scene);
+                aboutStage.setTitle("About");
+                aboutStage.show();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+        }));
     }
 }
