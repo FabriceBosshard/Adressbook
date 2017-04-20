@@ -3,10 +3,6 @@ package sample.Filter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.Model.Adress;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -23,9 +19,9 @@ public class Filter {
         filteredBook = FXCollections.observableArrayList();
 
         for (Adress a : book) {
-            if (a.getName().equals(name)) {
+            if (Pattern.matches(name,a.getName())) {
                 filteredBook.add(a);
-            }else if (a.getSurname().equals(name)){
+            }else if (Pattern.matches(name,a.getSurname())){
                 filteredBook.add(a);
             }
         }

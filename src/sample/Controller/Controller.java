@@ -3,19 +3,23 @@ package sample.Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Filter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import sample.Main;
@@ -60,6 +64,8 @@ public class Controller implements Initializable{
 
     private TableView table = new TableView();
     private int selectedItem;
+    public static Boolean IsAlter;
+    public static UUID ID;
 
     public void fillTableView(){
         table.setEditable(true);
@@ -107,23 +113,26 @@ public class Controller implements Initializable{
         });
 
         apply.setOnAction((event) -> {
-            delete.setVisible(false);
+
             ObservableList<Adress> tempBook = Adressbook.adressbook;
             sample.Filter.Filter filt = new sample.Filter.Filter(tempBook);
 
             if (!searchTel.getText().isEmpty() && searchName.getText().isEmpty()) {
                 String temp = searchTel.getText();
                 table.setItems(filt.FilterPhone(temp));
+                delete.setVisible(false);
             }
             if (!searchName.getText().isEmpty() && searchTel.getText().isEmpty()) {
                 String temp = searchName.getText();
                 table.setItems(filt.FilterName(temp));
+                delete.setVisible(false);
             }
             if (!searchName.getText().isEmpty() && !searchTel.getText().isEmpty())
             {
                 String tempTel = searchTel.getText();
                 String tempName = searchName.getText();
                 table.setItems(filt.FilterNamePhone(tempName,tempTel));
+                delete.setVisible(false);
             }
             selectedItem = 0;
             showDetailView();
@@ -134,6 +143,29 @@ public class Controller implements Initializable{
                 selectedItem = table.getSelectionModel().selectedIndexProperty().get();
 
                 showDetailView();
+            }
+        });
+
+        table.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                    selectedItem = table.getSelectionModel().selectedIndexProperty().get();
+
+                    ID = Adressbook.adressbook.get(selectedItem).getID();
+                    IsAlter = true;
+
+                    Stage employeeStage = new Stage();
+                    try {
+                        Pane page = (Pane) FXMLLoader.load(Main.class.getResource("View/employeePage.fxml"));
+                        Scene scene = new Scene(page);
+                        employeeStage.setScene(scene);
+                        employeeStage.setTitle("Mitarbeiter Bearbeiten");
+                        employeeStage.show();
+                    } catch (Exception ex) {
+                        Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
             }
         });
         delete.setOnAction((event) -> {

@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.Model.Adress;
@@ -36,6 +37,8 @@ public class ControllerEmployee implements Initializable {
     private Button abbort;
     @FXML
     private Button createEmployee;
+    @FXML
+    private Label title;
 
     String inputName;
     String inputSurname;
@@ -63,21 +66,59 @@ public class ControllerEmployee implements Initializable {
             inputSurname = surname.getText();
             inputTelephone = telephone.getText();
 
+
             if (checkValidation()){
-                createNew(inputAdress,inputBirthdate,inputEmail,inputSurname,inputTelephone,inputName);
+                if (Controller.IsAlter){
+                    alterData(inputAdress,inputBirthdate,inputEmail,inputSurname,inputTelephone,inputName);
+                    Controller.IsAlter = false;
+                }else{
+                    createNew(inputAdress,inputBirthdate,inputEmail,inputSurname,inputTelephone,inputName);
+                }
                 Stage stage = (Stage) createEmployee.getScene().getWindow();
                 stage.close();
             }
         });
     }
 
+    private void alterData(String inputAdress, String inputBirthdate, String inputEmail, String inputSurname, String inputTelephone, String inputName) {
+        for (Adress a : Adressbook.adressbook) {
+            if (a.getID() == Controller.ID){
+                Adressbook.adressbook.remove(a);
+                break;
+            }
+        }
+        Adressbook.adressbook.add(new Adress(inputName,inputSurname,inputBirthdate,inputAdress,inputEmail,inputTelephone));
+        SaveToJson.Save();
+    }
+
     private void setPromtText() {
-        surname.setPromptText("Hans");
-        name.setPromptText("Müller");
-        email.setPromptText("hans.mueller@gmail.com");
-        birthdate.setPromptText("24.01.2000");
-        adress.setPromptText("Wiesliacher 16");
-        telephone.setPromptText("0786200035 / 078 620 00 35");
+        if (Controller.IsAlter){
+
+            title.setText("Mitarbeiter bearbeiten");
+            createEmployee.setText("Übernehmen");
+
+            Adress temp = new Adress();
+            for (Adress a : Adressbook.adressbook) {
+                if (a.getID() == Controller.ID){
+                    temp = a;
+                }
+            }
+
+            surname.setText(temp.getSurname());
+            name.setText(temp.getName());
+            email.setText(temp.getEmail());
+            birthdate.setText(temp.getBirthdate());
+            adress.setText(temp.getAddress());
+            telephone.setText(temp.getTelephone());
+        }else{
+            surname.setPromptText("Hans");
+            name.setPromptText("Müller");
+            email.setPromptText("hans.mueller@gmail.com");
+            birthdate.setPromptText("24.01.2000");
+            adress.setPromptText("Wiesliacher 16");
+            telephone.setPromptText("0786200035 / 078 620 00 35");
+        }
+
     }
 
     public void createNew(String adress,String birthdate,String email,String surname, String telephone,String name){

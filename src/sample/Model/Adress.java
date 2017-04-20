@@ -27,6 +27,10 @@ public class Adress {
         this.ID = UUID.randomUUID();
     }
 
+    public Adress() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -51,4 +55,7 @@ public class Adress {
         return telephone;
     }
 
+    public UUID getID() {
+        return ID;
+    }
 }

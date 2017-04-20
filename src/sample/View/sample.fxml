@@ -86,7 +86,7 @@
                <children>
                   <HBox maxHeight="50.0" maxWidth="365.0" minHeight="60.0" prefHeight="50.0" prefWidth="365.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="111.0" text="Name" textAlignment="CENTER">
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Name:" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -103,7 +103,7 @@
                   </HBox>
                   <HBox maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="111.0" text="Vorname" textAlignment="CENTER">
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Vorname:" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -120,7 +120,7 @@
                   </HBox>
                   <HBox maxHeight="60.0" minHeight="60.0" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="111.0" text="Geburtsdatum" textAlignment="CENTER">
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Geburtsdatum:" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -134,7 +134,7 @@
                   </HBox>
                   <HBox maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="111.0" text="Adresse" textAlignment="CENTER">
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Adresse:" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -148,7 +148,7 @@
                   </HBox>
                   <HBox maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="111.0" text="Email" textAlignment="CENTER">
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Email:" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
@@ -162,7 +162,7 @@
                   </HBox>
                   <HBox maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="21.0" prefWidth="111.0" text="Telefonnummer" textAlignment="CENTER">
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Telefonnummer:" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
