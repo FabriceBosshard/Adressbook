@@ -48,6 +48,8 @@ public class ControllerEmployee implements Initializable {
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'simple.fxml'.";
 
+        setPromtText();
+
         abbort.setOnAction((event)->{
             Stage stage = (Stage) abbort.getScene().getWindow();
             stage.close();
@@ -68,6 +70,16 @@ public class ControllerEmployee implements Initializable {
             }
         });
     }
+
+    private void setPromtText() {
+        surname.setPromptText("Hans");
+        name.setPromptText("Müller");
+        email.setPromptText("hans.mueller@gmail.com");
+        birthdate.setPromptText("24.01.2000");
+        adress.setPromptText("Wiesliacher 16");
+        telephone.setPromptText("0786200035 / 078 620 00 35");
+    }
+
     public void createNew(String adress,String birthdate,String email,String surname, String telephone,String name){
         Adressbook.adressbook.add(new Adress(name,surname,birthdate,adress,email,telephone));
         SaveToJson.Save();

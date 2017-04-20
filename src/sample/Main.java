@@ -22,6 +22,9 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Adressbuch");
+            primaryStage.setResizable(false);
+            primaryStage.setWidth(854);
+            primaryStage.setHeight(493);
             primaryStage.show();
         }
         catch (Exception ex) {

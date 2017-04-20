@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -18,8 +17,8 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Info">
                   <items>
-                      <MenuItem mnemonicParsing="false" fx:id="info" text="Hilfe"/>
-                     <MenuItem mnemonicParsing="false" fx:id="about" text="Über" />
+                      <MenuItem fx:id="info" mnemonicParsing="false" text="Hilfe" />
+                     <MenuItem fx:id="about" mnemonicParsing="false" text="Über" />
                   </items>
                 </Menu>
               </menus>
@@ -33,7 +32,7 @@
                         <Insets left="10.0" top="12.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="searchName" prefHeight="31.0" prefWidth="140.0">
+                  <TextField fx:id="searchName" prefHeight="31.0" prefWidth="117.0">
                      <HBox.margin>
                         <Insets left="5.0" top="12.0" />
                      </HBox.margin></TextField>
@@ -42,11 +41,16 @@
                         <Insets left="10.0" top="12.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="searchTel" prefHeight="31.0" prefWidth="137.0">
+                  <TextField fx:id="searchTel" prefHeight="31.0" prefWidth="117.0">
                      <HBox.margin>
                         <Insets left="5.0" top="12.0" />
                      </HBox.margin></TextField>
                   <Button fx:id="apply" mnemonicParsing="false" text="Anwenden">
+                     <HBox.margin>
+                        <Insets left="5.0" top="12.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="deleteFilter" mnemonicParsing="false" prefHeight="31.0" prefWidth="37.0" text="X">
                      <HBox.margin>
                         <Insets left="5.0" top="12.0" />
                      </HBox.margin>
@@ -76,32 +80,100 @@
       </BorderPane>
    </top>
    <right>
-      <VBox prefHeight="480.0" prefWidth="365.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1px;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="480.0" prefWidth="365.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="200.0" prefWidth="358.0">
+            <VBox prefHeight="400.0" prefWidth="365.0" style="-fx-border-color: black; -fx-border-width: 1px; -fx-border-style: solid;">
                <children>
-                  <Label prefHeight="21.0" prefWidth="120.0" text="Telefonnummer" textAlignment="CENTER">
+                  <HBox maxHeight="50.0" maxWidth="365.0" minHeight="60.0" prefHeight="50.0" prefWidth="365.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Name" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="outputName" prefHeight="21.0" prefWidth="198.0" text="Label" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
                      <VBox.margin>
-                        <Insets left="120.0" />
-                     </VBox.margin></Label>
-                  <Label fx:id="outputTel" textAlignment="CENTER" prefHeight="21.0" prefWidth="219.0" text="Label">
-                     <VBox.margin>
-                        <Insets left="75.0" top="60.0" />
+                        <Insets top="20.0" />
                      </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="358.0" >
-               <children>
-                  <Label prefHeight="21.0" prefWidth="50.0" text="E-Mail" textAlignment="CENTER">
+                  </HBox>
+                  <HBox maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Vorname" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="outputSurname" prefHeight="21.0" prefWidth="194.0" text="outputEmail" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
                      <VBox.margin>
-                        <Insets left="150.0" />
-                     </VBox.margin></Label>
-                  <Label fx:id="outputEmail" textAlignment="CENTER" prefWidth="219.0" text="Label">
-                     <VBox.margin>
-                        <Insets left="75.0" top="60.0" />
+                        <Insets />
                      </VBox.margin>
-                  </Label>
+                  </HBox>
+                  <HBox maxHeight="60.0" minHeight="60.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Geburtsdatum" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="outputDate" prefHeight="21.0" prefWidth="193.0" text="Label" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Adresse" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="outputAdress" prefHeight="21.0" prefWidth="194.0" text="Label" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Email" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="outputEmail" prefHeight="21.0" prefWidth="196.0" text="Label" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox maxHeight="60.0" minHeight="60.0" prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="111.0" text="Telefonnummer" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="outputTel" prefHeight="21.0" prefWidth="181.0" text="Label" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>

@@ -34,6 +34,14 @@ public class Controller implements Initializable{
     @FXML
     private Label outputTel;
     @FXML
+    private Label outputDate;
+    @FXML
+    private Label outputName;
+    @FXML
+    private Label outputSurname;
+    @FXML
+    private Label outputAdress;
+    @FXML
     private Label outputEmail;
     @FXML
     private Button newEmployee;
@@ -47,6 +55,8 @@ public class Controller implements Initializable{
     private MenuItem info;
     @FXML
     private MenuItem about;
+    @FXML
+    private Button deleteFilter;
 
     private TableView table = new TableView();
     private int selectedItem;
@@ -86,23 +96,36 @@ public class Controller implements Initializable{
         assert save != null : "fx:id=\"myButton\" was not injected: check your FXML file 'simple.fxml'.";
         initializePane();
 
+        deleteFilter.setOnAction((event) -> {
+            table.setItems(Adressbook.adressbook);
+            delete.setVisible(true);
+            searchName.setText("");
+            searchTel.setText("");
+            selectedItem = 0;
+
+            showDetailView();
+        });
+
         apply.setOnAction((event) -> {
             delete.setVisible(false);
-            ObservableList<Adress> tempBook = table.getItems();
+            ObservableList<Adress> tempBook = Adressbook.adressbook;
             sample.Filter.Filter filt = new sample.Filter.Filter(tempBook);
 
-            if (!searchTel.getText().isEmpty()) {
+            if (!searchTel.getText().isEmpty() && searchName.getText().isEmpty()) {
                 String temp = searchTel.getText();
                 table.setItems(filt.FilterPhone(temp));
             }
-            if (!searchName.getText().isEmpty()) {
+            if (!searchName.getText().isEmpty() && searchTel.getText().isEmpty()) {
                 String temp = searchName.getText();
                 table.setItems(filt.FilterName(temp));
             }
-            if (searchName.getText().isEmpty() && searchTel.getText().isEmpty()) {
-                table.setItems(Adressbook.adressbook);
-                delete.setVisible(true);
+            if (!searchName.getText().isEmpty() && !searchTel.getText().isEmpty())
+            {
+                String tempTel = searchTel.getText();
+                String tempName = searchName.getText();
+                table.setItems(filt.FilterNamePhone(tempName,tempTel));
             }
+            selectedItem = 0;
             showDetailView();
         });
 
@@ -176,8 +199,18 @@ public class Controller implements Initializable{
     }
 
     private void showDetailView() {
-        outputEmail.setText(Adressbook.adressbook.get(selectedItem).getEmail());
-        outputTel.setText(Adressbook.adressbook.get(selectedItem).getTelephone());
+        Adress sample;
+        ObservableList<Adress> temp;
+        temp = table.getItems();
+        sample = temp.get(selectedItem);
+
+        outputAdress.setText(sample.getAddress());
+        outputDate.setText(sample.getBirthdate());
+        outputEmail.setText(sample.getEmail());
+        outputName.setText(sample.getName());
+        outputSurname.setText(sample.getSurname());
+        outputTel.setText(sample.getTelephone());
+
     }
 
     private void deleteDataRow() {

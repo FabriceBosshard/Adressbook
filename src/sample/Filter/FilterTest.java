@@ -21,12 +21,8 @@ public class FilterTest {
         book.add(c);
         book.add(b);
 
-
-
-
         Filter f = new Filter(book);
         f.FilterName("Peter");
-
 
         for (Adress s : f.getFilteredBook()) {
             System.out.println(s.getName());

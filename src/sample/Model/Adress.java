@@ -2,6 +2,7 @@ package sample.Model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Fabrice on 27.03.2017.
@@ -14,6 +15,7 @@ public class Adress {
     private String address;
     private String email;
     private String telephone;
+    private UUID ID;
 
     public Adress(String name, String forname, String birthdate, String adress, String email, String telephone){
         this.name = name;
@@ -22,6 +24,7 @@ public class Adress {
         this.address = adress;
         this.email = email;
         this.telephone = telephone;
+        this.ID = UUID.randomUUID();
     }
 
     public String getName() {
