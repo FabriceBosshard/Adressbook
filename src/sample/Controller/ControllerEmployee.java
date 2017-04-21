@@ -56,6 +56,8 @@ public class ControllerEmployee implements Initializable {
         abbort.setOnAction((event)->{
             Stage stage = (Stage) abbort.getScene().getWindow();
             stage.close();
+
+            Controller.IsAlter = false;
         });
 
         createEmployee.setOnAction((event)->{

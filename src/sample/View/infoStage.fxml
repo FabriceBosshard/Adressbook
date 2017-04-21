@@ -8,7 +8,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" text="Hilfe">
                <font>
@@ -22,7 +22,7 @@
       </HBox>
    </top>
    <bottom>
-      <VBox prefHeight="300.0" prefWidth="613.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="354.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Hier finden Sie die Hilfe zum Programm.">
                <VBox.margin>
@@ -44,7 +44,7 @@
                   <Insets left="30.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <Label prefHeight="64.0" prefWidth="465.0" text="Zur Orientierung haben sie 2 Textfelder zu verfügung.&#10;Name -&gt; Hier können sie nach Vorname oder Nachname suchen. &#10;Tel. -&gt; Hier können sie nach der Telefonnummer suchen.">
+            <Label prefHeight="108.0" prefWidth="465.0" text="Zur Orientierung haben sie 2 Textfelder zu verfügung.&#10;Name -&gt; Hier können sie nach Vorname oder Nachname suchen. &#10;Tel. -&gt; Hier können sie nach der Telefonnummer suchen.&#10;Anwenden der Filter -&gt; Auf Knopf &quot;Anwenden&quot;drücken.&#10;Filter löschen -&gt; Auf Knopf &quot;X&quot; drücken.">
                <VBox.margin>
                   <Insets left="30.0" />
                </VBox.margin>

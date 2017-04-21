@@ -64,7 +64,7 @@ public class Controller implements Initializable{
 
     private TableView table = new TableView();
     private int selectedItem;
-    public static Boolean IsAlter;
+    public static Boolean IsAlter = false;
     public static UUID ID;
 
     public void fillTableView(){
@@ -104,7 +104,6 @@ public class Controller implements Initializable{
 
         deleteFilter.setOnAction((event) -> {
             table.setItems(Adressbook.adressbook);
-            delete.setVisible(true);
             searchName.setText("");
             searchTel.setText("");
             selectedItem = 0;
@@ -120,19 +119,16 @@ public class Controller implements Initializable{
             if (!searchTel.getText().isEmpty() && searchName.getText().isEmpty()) {
                 String temp = searchTel.getText();
                 table.setItems(filt.FilterPhone(temp));
-                delete.setVisible(false);
             }
             if (!searchName.getText().isEmpty() && searchTel.getText().isEmpty()) {
                 String temp = searchName.getText();
                 table.setItems(filt.FilterName(temp));
-                delete.setVisible(false);
             }
             if (!searchName.getText().isEmpty() && !searchTel.getText().isEmpty())
             {
                 String tempTel = searchTel.getText();
                 String tempName = searchName.getText();
                 table.setItems(filt.FilterNamePhone(tempName,tempTel));
-                delete.setVisible(false);
             }
             selectedItem = 0;
             showDetailView();
@@ -161,6 +157,7 @@ public class Controller implements Initializable{
                         Scene scene = new Scene(page);
                         employeeStage.setScene(scene);
                         employeeStage.setTitle("Mitarbeiter Bearbeiten");
+                        employeeStage.setResizable(false);
                         employeeStage.show();
                     } catch (Exception ex) {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
@@ -199,6 +196,7 @@ public class Controller implements Initializable{
 
                 infoStage.setScene(scene);
                 infoStage.setTitle("Info");
+                infoStage.setResizable(false);
                 infoStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -215,6 +213,7 @@ public class Controller implements Initializable{
 
                 aboutStage.setScene(scene);
                 aboutStage.setTitle("About");
+                aboutStage.setResizable(false);
                 aboutStage.show();
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -246,6 +245,13 @@ public class Controller implements Initializable{
     }
 
     private void deleteDataRow() {
-        Adressbook.adressbook.remove(selectedItem);
+        Adress sample;
+        ObservableList<Adress> temp;
+        temp = table.getItems();
+        sample = temp.get(selectedItem);
+        Adressbook.adressbook.remove(sample);
+        temp.remove(sample);
+
+        table.setItems(temp);
     }
 }
