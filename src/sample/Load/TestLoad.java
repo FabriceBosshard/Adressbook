@@ -14,13 +14,6 @@ import java.io.FileNotFoundException;
  */
 public class TestLoad {
     public static void main(String[] args) {
-
-
-
-
-
-
-
         LoadFromJson loader = new LoadFromJson();
         try {
             loader.Load("AddressBook.json");
